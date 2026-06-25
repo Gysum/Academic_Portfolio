@@ -54,7 +54,7 @@ export default function CustomCursor() {
         translateX: '-50%',
         translateY: '-50%',
       }}
-      className={`fixed top-0 left-0 z-50 pointer-events-none rounded-full flex items-center justify-center font-mono text-[9px] font-bold tracking-wider uppercase border border-accent-cyan bg-base/5 shadow-[0_0_10px_rgba(61,214,245,0.2)] mix-blend-difference transition-all duration-200 ${
+      className={`fixed top-0 left-0 z-50 pointer-events-none rounded-full flex items-center justify-center font-mono text-[9px] font-bold tracking-wider uppercase border border-accent-cyan bg-site/5 shadow-[0_0_10px_rgba(61,214,245,0.2)] mix-blend-difference transition-all duration-200 ${
         isHovered ? 'w-16 h-16 bg-accent-cyan/10 border-accent-cyan' : 'w-6 h-6 border-white/40'
       }`}
       animate={{

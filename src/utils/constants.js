@@ -5,7 +5,7 @@ export const PROFILE = {
   role: 'Full-stack Developer',
   tagline: 'Hello! I\'m Aakash, I\'m a full-stack builder.',
   experience: 'Always building, always learning.',
-  description: 'My goal is to design clean, modular, and maintainable systems so that building interfaces feels enjoyable.',
+  description: "I'm a 3rd-year B.Tech Computer Science student at the Indian Institute of Information Technology Dharwad, passionate about building intuitive and scalable web applications. My current focus is on React, Tailwind CSS, Node.js, and strengthening my problem-solving abilities through Data Structures & Algorithms in Java. I enjoy participating in hackathons, learning modern technologies, and building products that create meaningful impact.",
   github: 'https://github.com/your-username',
   linkedin: 'https://linkedin.com/in/your-username',
   telegram: 'https://t.me/your-username',

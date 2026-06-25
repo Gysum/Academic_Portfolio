@@ -18,7 +18,7 @@ function AchievementCard({ item, isFeatured }) {
       onClick={toggleExpand}
       className={`relative rounded-2xl p-7 border overflow-hidden cursor-pointer transition-all duration-300 select-none ${
         isFeatured
-          ? 'w-full bg-gradient-to-r from-[#170E30]/70 via-base-surface to-[#0A162B]/70 border-accent-violet/30 hover:border-accent-violet/50 shadow-[0_0_20px_rgba(124,92,255,0.05)]'
+          ? 'w-full bg-gradient-to-r from-[#170E30]/70 via-site-surface to-[#0A162B]/70 border-accent-violet/30 hover:border-accent-violet/50 shadow-[0_0_20px_rgba(124,92,255,0.05)]'
           : 'glass glass-hover hover:border-white/20'
       }`}
       data-cursor="click"

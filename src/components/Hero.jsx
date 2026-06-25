@@ -24,8 +24,8 @@ export default function Hero() {
             Hello I'm <br />
             <span className="text-[#00F29D]">{PROFILE.name}</span>
           </h1>
-          <p className="max-w-lg text-zinc-400 text-sm md:text-base leading-relaxed mb-8 font-sans">
-            I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.
+          <p className="max-w-lg text-zinc-400 text-sm md:text-[16px] leading-relaxed mb-8 font-sans">
+            {PROFILE.description}
           </p>
 
           {/* Actions: Download CV and Socials */}

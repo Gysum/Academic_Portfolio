@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        base: {
+        site: {
           DEFAULT: '#0B0D12',
           surface: '#11141C',
           raised: '#161A24',
