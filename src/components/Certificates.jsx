@@ -67,13 +67,15 @@ export default function Certificates() {
 
       <div className="w-full relative flex items-center justify-center">
         {/* Left Arrow Button */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-0 md:left-4 z-10 w-10 h-10 rounded-full border border-white/10 hover:border-[#00F29D]/30 bg-[#0D0D0D] flex items-center justify-center text-white hover:text-[#00F29D] transition-all cursor-pointer"
-          aria-label="Previous certificate"
-        >
-          <FiArrowLeft size={16} />
-        </button>
+        {CERTIFICATES.length > 1 && (
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 md:left-4 z-10 w-10 h-10 rounded-full border border-white/10 hover:border-[#00F29D]/30 bg-[#0D0D0D] flex items-center justify-center text-white hover:text-[#00F29D] transition-all cursor-pointer"
+            aria-label="Previous certificate"
+          >
+            <FiArrowLeft size={16} />
+          </button>
+        )}
 
         {/* Carousel slide container */}
         <div className="w-full max-w-3xl overflow-hidden px-10">
@@ -87,12 +89,20 @@ export default function Certificates() {
               className="w-full bg-[#131313] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 text-left"
               style={{ perspective: '1000px' }}
             >
-              {/* Dynamic certificate mockup instead of static image */}
-              <div className="w-full md:w-2/5 aspect-video md:aspect-square rounded-2xl overflow-hidden bg-zinc-950/40 flex-shrink-0 flex items-center justify-center">
-                <CertificateVisual
-                  title={currentCertificate.title}
-                  tech={currentCertificate.tech}
-                />
+              {/* Certificate image or dynamic mockup */}
+              <div className="w-full md:w-2/5 aspect-video md:aspect-square rounded-2xl overflow-hidden bg-zinc-950/40 flex-shrink-0 flex items-center justify-center border border-white/5">
+                {currentCertificate.image && currentCertificate.image !== '/project_placeholder.png' ? (
+                  <img
+                    src={currentCertificate.image}
+                    alt={currentCertificate.title}
+                    className="w-full h-full object-contain p-1"
+                  />
+                ) : (
+                  <CertificateVisual
+                    title={currentCertificate.title}
+                    tech={currentCertificate.tech}
+                  />
+                )}
               </div>
 
               {/* Slide details */}
@@ -111,6 +121,8 @@ export default function Certificates() {
 
                 <a
                   href={currentCertificate.link}
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={() => playTick()}
                   className="bg-white text-black font-mono text-[10px] font-bold px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-[#00F29D] transition-colors w-fit mt-8 shadow-sm cursor-pointer"
                   data-cursor="click"
@@ -124,13 +136,15 @@ export default function Certificates() {
         </div>
 
         {/* Right Arrow Button */}
-        <button
-          onClick={handleNext}
-          className="absolute right-0 md:right-4 z-10 w-10 h-10 rounded-full border border-white/10 hover:border-[#00F29D]/30 bg-[#0D0D0D] flex items-center justify-center text-white hover:text-[#00F29D] transition-all cursor-pointer"
-          aria-label="Next certificate"
-        >
-          <FiArrowRight size={16} />
-        </button>
+        {CERTIFICATES.length > 1 && (
+          <button
+            onClick={handleNext}
+            className="absolute right-0 md:right-4 z-10 w-10 h-10 rounded-full border border-white/10 hover:border-[#00F29D]/30 bg-[#0D0D0D] flex items-center justify-center text-white hover:text-[#00F29D] transition-all cursor-pointer"
+            aria-label="Next certificate"
+          >
+            <FiArrowRight size={16} />
+          </button>
+        )}
       </div>
     </section>
   )

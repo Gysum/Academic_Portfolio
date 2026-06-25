@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa'
-import { SiTypescript, SiNextdotjs, SiTailwindcss, SiExpress, SiPostgresql, SiMongodb } from 'react-icons/si'
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaJava, FaPython } from 'react-icons/fa'
+import { SiNextdotjs, SiTailwindcss, SiExpress, SiMongodb } from 'react-icons/si'
 import { PROFILE, WORK_EXPERIENCE, EDUCATION, ABOUT_ME_INFO } from '../utils/constants'
 import { playTick } from '../utils/audio'
 
@@ -18,14 +18,14 @@ export default function About() {
     { name: 'HTML 5', icon: FaHtml5 },
     { name: 'CSS 3', icon: FaCss3Alt },
     { name: 'JavaScript', icon: FaJs },
-    { name: 'TypeScript', icon: SiTypescript },
+    { name: 'Java', icon: FaJava },
     { name: 'React.js', icon: FaReact },
     { name: 'Next.js', icon: SiNextdotjs },
     { name: 'Tailwind CSS', icon: SiTailwindcss },
     { name: 'Node.js', icon: FaNodeJs },
     { name: 'Express.js', icon: SiExpress },
     { name: 'MongoDB', icon: SiMongodb },
-    { name: 'PostgreSQL', icon: SiPostgresql },
+    { name: 'Python', icon: FaPython },
     { name: 'Git', icon: FaGitAlt }
   ]
 

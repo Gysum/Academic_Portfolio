@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
-import { FaGithub, FaLinkedin, FaTelegram, FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { FiDownload } from 'react-icons/fi'
 import { PROFILE, STATS } from '../utils/constants'
 import { playTick } from '../utils/audio'
@@ -45,9 +45,6 @@ export default function Hero() {
               {[
                 { icon: FaGithub, href: PROFILE.github, label: 'GitHub' },
                 { icon: FaLinkedin, href: PROFILE.linkedin, label: 'LinkedIn' },
-                { icon: FaTelegram, href: PROFILE.telegram, label: 'Telegram' },
-                { icon: FaFacebook, href: PROFILE.facebook, label: 'Facebook' },
-                { icon: FaInstagram, href: PROFILE.instagram, label: 'Instagram' },
               ].map((social, idx) => (
                 <a
                   key={idx}
