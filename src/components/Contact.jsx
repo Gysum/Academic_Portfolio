@@ -6,20 +6,53 @@ import { playTick } from '../utils/audio'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('idle') // idle | sending | sent
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     setStatus('sending')
     playTick()
-    setTimeout(() => {
+
+    const url = import.meta.env.VITE_GOOGLE_FORM_URL
+    const nameEntry = import.meta.env.VITE_GOOGLE_FORM_ENTRY_NAME
+    const emailEntry = import.meta.env.VITE_GOOGLE_FORM_ENTRY_EMAIL
+    const msgEntry = import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE
+
+    if (!url || !nameEntry || !emailEntry || !msgEntry) {
+      console.warn("Google Form environment variables are not fully configured.")
+      setTimeout(() => {
+        setStatus('sent')
+        playTick()
+        setForm({ name: '', email: '', message: '' })
+        setTimeout(() => setStatus('idle'), 4000)
+      }, 1200)
+      return
+    }
+
+    const formData = new FormData()
+    formData.append(nameEntry, form.name)
+    formData.append(emailEntry, form.email)
+    formData.append(msgEntry, form.message)
+
+    try {
+      await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
       setStatus('sent')
       playTick()
-    }, 1200)
+      setForm({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 4000)
+    } catch (err) {
+      console.error('Submission failed', err)
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 4000)
+    }
   }
 
   return (
@@ -51,13 +84,20 @@ export default function Contact() {
 
           <button
             type="submit"
-            disabled={status !== 'idle'}
-            className="w-full bg-white hover:bg-zinc-200 text-black font-mono text-xs font-bold py-3.5 rounded-full flex items-center justify-center gap-2 transition-all disabled:opacity-80 cursor-pointer shadow-sm"
+            disabled={status === 'sending'}
+            className={`w-full font-mono text-xs font-bold py-3.5 rounded-full flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm ${
+              status === 'sent'
+                ? 'bg-emerald-500 text-white hover:bg-emerald-600'
+                : status === 'error'
+                ? 'bg-rose-500 text-white hover:bg-rose-600'
+                : 'bg-white hover:bg-zinc-200 text-black disabled:opacity-80'
+            }`}
             data-cursor="click"
           >
             {status === 'idle' && (<><FiSend size={14} /> Send Message</>)}
             {status === 'sending' && 'Sending…'}
             {status === 'sent' && (<><FiCheck size={14} /> Sent — thanks!</>)}
+            {status === 'error' && 'Failed to send — try again?'}
           </button>
         </motion.form>
 
