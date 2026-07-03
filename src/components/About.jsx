@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaJava, FaPython } from 'react-icons/fa'
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiMongodb } from 'react-icons/si'
-import { PROFILE, WORK_EXPERIENCE, EDUCATION, ABOUT_ME_INFO } from '../utils/constants'
+import { PROFILE, WORK_EXPERIENCE, ABOUT_ME_INFO } from '../utils/constants'
 import { playTick } from '../utils/audio'
 
 export default function About() {
@@ -58,33 +58,7 @@ export default function About() {
         </div>
       )
     },
-    education: {
-      title: 'My education',
-      description: 'I combine formal computer science coursework with industry certifications to build deep frontend and backend expertise.',
-      render: () => (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-left">
-          {EDUCATION.map((edu, idx) => (
-            <div
-              key={idx}
-              className="bg-[#1c1c1e] p-5 rounded-2xl border border-white/5 flex flex-col justify-between hover:border-[#00F29D]/20 transition-all duration-300"
-            >
-              <div>
-                <span className="text-[#00F29D] font-mono text-[11px] font-semibold mb-1 block">
-                  {edu.duration}
-                </span>
-                <h4 className="text-white font-mono text-sm font-bold mb-1 leading-tight">
-                  {edu.degree}
-                </h4>
-              </div>
-              <div className="flex items-center gap-1.5 text-zinc-400 font-mono text-[10px] mt-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F29D]" />
-                {edu.institution}
-              </div>
-            </div>
-          ))}
-        </div>
-      )
-    },
+
     skills: {
       title: 'My skills',
       description: 'Here are the core languages, libraries, tools, and databases I use regularly to build projects.',
@@ -147,7 +121,6 @@ export default function About() {
           <div className="flex flex-col gap-3 w-full">
             {[
               { id: 'experience', label: 'Experience' },
-              { id: 'education', label: 'Education' },
               { id: 'skills', label: 'Skills' },
               { id: 'about', label: 'About me' },
             ].map((tab) => (
