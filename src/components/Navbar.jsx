@@ -79,7 +79,11 @@ export default function Navbar() {
         {/* Hire me pill & Hamburger toggle on the right */}
         <div className="flex items-center gap-4">
           <a
-            href="#contacts"
+            href={`mailto:${PROFILE.email}`}
+            onClick={(e) => {
+              e.preventDefault()
+              window.open(`mailto:${PROFILE.email}`, '_blank')
+            }}
             className="bg-[#00F29D] text-black font-semibold text-xs md:text-sm px-6 py-2 rounded-full hover:bg-[#00d187] transition-all duration-300 shadow-[0_0_15px_rgba(0,242,157,0.15)] hover:shadow-[0_0_25px_rgba(0,242,157,0.3)]"
           >
             Hire me
