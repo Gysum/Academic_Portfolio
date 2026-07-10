@@ -1,55 +1,73 @@
 // Central data file — modified to display Certificates instead of Projects.
 
 export const PROFILE = {
-  name: 'Aakash',
+  name: 'Aakash Pathrikar',
   role: 'Full-stack Developer',
-  tagline: 'Hello! I\'m Aakash, I\'m a full-stack builder.',
+  tagline: 'Hello! I\'m Aakash Pathrikar, I\'m a full-stack builder.',
   experience: 'Always building, always learning.',
   description: "I'm a 3rd-year B.Tech Computer Science student at the Indian Institute of Information Technology Dharwad, passionate about building intuitive and scalable web applications. My current focus is on React, Tailwind CSS, Node.js, and strengthening my problem-solving abilities through Data Structures & Algorithms in Java. I enjoy participating in hackathons, learning modern technologies, and building products that create meaningful impact.",
-  github: 'https://github.com/your-username',
-  linkedin: 'https://linkedin.com/in/your-username',
-  telegram: 'https://t.me/your-username',
-  facebook: 'https://facebook.com/your-username',
-  instagram: 'https://instagram.com/your-username',
-  email: 'your.email@example.com',
+  github: 'https://github.com/Gysum',
+  linkedin: 'https://linkedin.com/in/aakash-pathrikar-483aa4324',
+  email: 'aakashpathrikar@gmail.com',
 }
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Certificates', href: '#certificates' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Work', href: '#work' },
   { label: 'Contact', href: '#contacts' },
 ]
 
+export const PROJECTS = [
+  {
+    title: "Project Camp Backend",
+    description: "Project Camp Backend is a RESTful API service designed to support collaborative project management. The system enables teams to organize projects, manage tasks with subtasks, maintain project notes, and handle user authentication with role-based access control.",
+    repo: "https://github.com/Gysum/Project-Camp.git",
+    tech: ["Node.js", "Express.js", "MongoDB", "REST API", "JWT", "RBAC"],
+    role: "Backend Engineer",
+    image: "/project_camp_preview.png"
+  },
+  {
+    title: "Linux Anti Ransomware Monitor (LARM)",
+    description: "A security monitoring system designed to detect and block ransomware activity on Linux endpoints. Utilizes machine learning behavior-based detection, features a custom attack simulator, and provides a web dashboard interface for real-time telemetry and logging.",
+    repo: "https://github.com/Gysum/LARM.git",
+    tech: ["Python", "Machine Learning", "C", "Linux Security", "HTML/CSS"],
+    role: "Security & Python Developer",
+    image: "/larm_preview.png"
+  }
+]
+
+
 export const CERTIFICATES = [
   {
-    title: 'AWS Certified Cloud Practitioner',
-    detail: 'Authorized by Amazon Web Services. Validates core understanding of AWS Cloud platform, infrastructure, billing, and security paradigms.',
-    image: '/project_placeholder.png',
-    tech: 'AWS / Cloud Computing / IAM / VPC / EC2',
-    link: '#',
+    title: "HackMaze 2.0 - Track: PwrGov-X",
+    detail: "Secured top performance in Track: PwrGov-X (Telemetry-Driven Power Governor IP) at HackMaze 2.0, a 36-hour hackathon. Organized by GND_0 VLSI Club, IIIT Dharwad in collaboration with accelAIrate, and recognized for outstanding technical excellence, innovation, and AI/ML-driven hardware design.",
+    image: "/hackmaze_2_0.jpg",
+    tech: "IIIT Dharwad / GND_0 / accelAIrate / VLSI / AI",
+    link: "/hackmaze_2_0.jpg",
   },
   {
-    title: 'Meta Front-End Developer Professional Certificate',
-    detail: 'Issued by Meta. Confirms mastery of building responsive web applications using React, JavaScript state management, and UX design guidelines.',
-    image: '/project_placeholder.png',
-    tech: 'React / JavaScript / UI/UX / Version Control',
-    link: '#',
+    title: "HAL Aerothon '26",
+    detail: "Awarded Third Prize in HAL Aerothon 2026, a National-Level Aerospace Innovation Hackathon jointly organized by Hindustan Aeronautics Limited (HAL) and IIIT Dharwad. Conferred in recognition of outstanding innovation, technical excellence, and problem-solving.",
+    image: "/hal_aerothon_26.jpg",
+    tech: "HAL / IIIT Dharwad / React / GSAP",
+    link: "/hal_aerothon_26.jpg",
   },
   {
-    title: 'Google Advanced Data Analytics',
-    detail: 'Issued by Google. Verifies proficiency in predictive modeling, statistical testing, and automated Python scripts for dataset analysis.',
-    image: '/project_placeholder.png',
-    tech: 'Python / Data Science / SQL / Predictive Analysis',
-    link: '#',
+    title: "GenAI Powered Data Analytics Job Simulation",
+    detail: "Completed practical tasks in exploratory data analysis and risk profiling, predicting delinquency with AI, business reporting and data storytelling for collections strategy, and implementing an AI-driven collections strategy.",
+    image: "/tata_forage_data_analytics.png",
+    tech: "Forage / TATA / Data Analytics / GenAI / Python",
+    link: "/tata_forage_data_analytics.png",
   }
 ]
 
 export const SKILLS_CATEGORIES = {
   Frontend: {
     title: 'Front-end',
-    skills: 'TypeScript / React.js / Vue.js / Next.js / Redux Toolkit / Framer Motion / GSAP / Jest / React Native / Playwright',
+    skills: 'Java / React.js / Vue.js / Next.js / Redux Toolkit / Framer Motion / GSAP / Jest / React Native / Playwright',
   },
   Styles: {
     title: 'Styles',
@@ -57,7 +75,7 @@ export const SKILLS_CATEGORIES = {
   },
   Backend: {
     title: 'Back-end',
-    skills: 'Node.js / Express.js / Golang / Gin / PostgreSQL / MySQL / MongoDB / gRPC / Redis / REST APIs / Microservices',
+    skills: 'Node.js / Express.js / Golang / Gin / Python / MySQL / MongoDB / gRPC / Redis / REST APIs / Microservices',
   },
   DevOps: {
     title: 'DevOps & Tools',
@@ -68,27 +86,41 @@ export const SKILLS_CATEGORIES = {
 export const WORK_EXPERIENCE = [
   {
     year: '2026 - Now',
+    duration: 'Ongoing',
+    company: 'Project Camp',
+    role: 'Backend Architect & Developer',
+    description: 'Designed and built a collaborative project management service with subtasks, notes, and user authentication with role-based access control. Implemented event-driven patterns and robust MongoDB schemas.',
+    location: 'Remote',
+    date: 'July 2026',
+    link: 'https://github.com/Gysum/Project-Camp'
+  },
+  {
+    year: '2026 - Now',
     duration: '1 year 2 months',
     company: 'HAL Aerothon (3rd Prize)',
-    role: 'Core Frontend Engineer | React & GSAP',
+    role: 'Core Frontend Engineer',
+    description: 'Awarded Third Prize in HAL Aerothon 2026. Conferred in recognition of outstanding innovation, technical excellence, and problem-solving. Created dynamic frontend animations using GSAP and React.',
+    location: 'IIT Dharwad',
+    date: 'Feb 2026',
+    link: '/hal_aerothon_26.jpg'
   },
   {
     year: '2025 - 2026',
     duration: '8 months',
     company: 'Academic Projects',
-    role: 'Fullstack Developer | Node.js & React',
+    role: 'Fullstack Developer',
+    description: 'Built various fullstack apps using Node.js, Express, and React. Focused on creating responsive user interfaces and modular REST APIs.',
+    location: 'IIIT Dharwad',
+    date: 'August - December 2025'
   },
   {
     year: '2024 - 2025',
     duration: '1 year',
     company: 'Open Source Dev',
-    role: 'UI Specialist | TypeScript & Tailwind CSS',
-  },
-  {
-    year: '2023 - 2024',
-    duration: '9 months',
-    company: 'Self-taught Builds',
-    role: 'Web Interface Intern | HTML, CSS & JS',
+    role: 'UI Specialist',
+    description: 'Contributed to open source design libraries. Specialized in TypeScript, Tailwind CSS, and interactive component architectures.',
+    location: 'Remote',
+    date: '2024 - 2025'
   }
 ]
 
@@ -121,13 +153,12 @@ export const ABOUT_ME_INFO = {
   title: 'About me',
   description: 'I am a passionate software developer who loves building user-centric interfaces and modular, highly scalable backends. I have experience working with cross-functional teams in hackathons and academic environments.',
   details: [
-    { label: 'Name', value: 'Aakash' },
-    { label: 'Experience', value: '3+ Years' },
+    { label: 'Name', value: 'Aakash Pathrikar' },
+    { label: 'Experience', value: '2 Years' },
     { label: 'Nationality', value: 'Indian' },
     { label: 'Freelance', value: 'Available' },
-    { label: 'Phone', value: '(+91) 98765 43210' },
-    { label: 'Email', value: 'aakash.developer@gmail.com' },
-    { label: 'Languages', value: 'English, Hindi' }
+    { label: 'Email', value: 'aakashpathrikar@gmail.com' },
+    { label: 'Languages', value: 'English, Hindi, Marathi' }
   ]
 }
 
