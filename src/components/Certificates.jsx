@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import { CERTIFICATES } from '../utils/constants'
@@ -45,6 +45,7 @@ function CertificateVisual({ title, tech }) {
 
 export default function Certificates() {
   const [index, setIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % CERTIFICATES.length)
@@ -55,6 +56,16 @@ export default function Certificates() {
     setIndex((prev) => (prev - 1 + CERTIFICATES.length) % CERTIFICATES.length)
     playTick()
   }
+
+  useEffect(() => {
+    if (isHovered) return
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % CERTIFICATES.length)
+    }, 5000) // Auto-move every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [index, isHovered])
 
   const currentCertificate = CERTIFICATES[index]
 
@@ -78,7 +89,11 @@ export default function Certificates() {
         )}
 
         {/* Carousel slide container */}
-        <div className="w-full max-w-3xl overflow-hidden px-10">
+        <div 
+          className="w-full max-w-3xl overflow-hidden px-10"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
