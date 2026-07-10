@@ -34,7 +34,7 @@ export default function Navbar() {
     e.preventDefault()
     setActive(href)
     setOpen(false)
-    
+
     // Tiny delay to let the mobile menu start closing before triggering the scroll thread
     setTimeout(() => {
       const target = document.querySelector(href)
@@ -46,9 +46,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 py-5 ${
-        scrolled ? 'bg-[#0D0D0D]/90 border-b border-white/5 backdrop-blur-md' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 py-5 ${scrolled ? 'bg-[#0D0D0D]/90 border-b border-white/5 backdrop-blur-md' : 'bg-transparent'
+        }`}
     >
       <nav className="mx-auto max-w-6xl px-6 md:px-8 flex items-center justify-between">
         {/* Name / Brand on left */}
@@ -63,9 +62,8 @@ export default function Navbar() {
               <a
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`transition-colors duration-200 ${
-                  active === link.href ? 'text-[#00F29D] font-bold' : 'text-zinc-400 hover:text-white'
-                }`}
+                className={`transition-colors duration-200 ${active === link.href ? 'text-[#00F29D] font-bold' : 'text-zinc-400 hover:text-white'
+                  }`}
               >
                 {link.label}
               </a>
@@ -114,9 +112,8 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`transition-colors duration-200 py-1 ${
-                  active === link.href ? 'text-[#00F29D] font-bold' : 'text-zinc-400 hover:text-white'
-                }`}
+                className={`transition-colors duration-200 py-1 ${active === link.href ? 'text-[#00F29D] font-bold' : 'text-zinc-400 hover:text-white'
+                  }`}
               >
                 {link.label}
               </a>
