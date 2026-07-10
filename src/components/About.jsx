@@ -43,7 +43,7 @@ export default function About() {
             >
               <div>
                 <span className="text-[#00F29D] font-mono text-[11px] font-semibold mb-1 block">
-                  {exp.year} ({exp.duration})
+                  {exp.date} {exp.location ? `(${exp.location})` : ''}
                 </span>
                 <h4 className="text-white font-mono text-sm font-bold mb-1 leading-tight">
                   {exp.role}
@@ -63,7 +63,7 @@ export default function About() {
       title: 'My skills',
       description: 'Here are the core languages, libraries, tools, and databases I use regularly to build projects.',
       render: () => (
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4 w-full">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 w-full">
           {skillsData.map((skill, idx) => {
             const Icon = skill.icon
             return (
@@ -108,61 +108,58 @@ export default function About() {
 
   return (
     <section id="about" className="section-wrap pt-20 pb-24 border-t border-white/5 relative">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start w-full">
-        {/* Left Column: Why hire me & Tab Selector Buttons */}
-        <div className="lg:col-span-5 flex flex-col items-start text-left">
-          <h2 className="text-3xl md:text-4xl font-bold font-mono text-white mb-4 uppercase tracking-tighter">
-            Why hire me?
-          </h2>
-          <p className="text-zinc-400 text-sm leading-relaxed mb-8 font-sans">
-            I am a full-stack builder dedicated to writing clean, maintainable code. I love designing interactive experiences and building robust systems.
-          </p>
+      {/* Title */}
+      <div className="relative z-10 text-center w-full mb-12 select-none">
+        <span className="font-mono text-xs text-[#00F29D] uppercase tracking-widest">[ Profile ]</span>
+        <h2 className="text-4xl font-mono uppercase tracking-tighter text-white font-bold mt-2">
+          About Me
+        </h2>
+      </div>
 
-          <div className="flex flex-col gap-3 w-full">
-            {[
-              { id: 'experience', label: 'Experience' },
-              { id: 'skills', label: 'Skills' },
-              { id: 'about', label: 'About me' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabChange(tab.id)}
-                className={`w-full py-3 px-6 rounded-xl font-mono text-sm tracking-wider uppercase font-bold transition-all duration-300 text-center ${
-                  activeTab === tab.id
-                    ? 'bg-[#00F29D] text-black shadow-[0_0_15px_rgba(0,242,157,0.2)]'
-                    : 'bg-zinc-800/40 text-zinc-300 hover:bg-zinc-800 hover:text-white border border-white/5'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
+      {/* Tab Selector Buttons (Horizontal) */}
+      <div className="flex flex-col sm:flex-row justify-center gap-3 w-full max-w-xl mx-auto mb-12 select-none">
+        {[
+          { id: 'experience', label: 'Experience' },
+          { id: 'skills', label: 'Skills' },
+          { id: 'about', label: 'About me' },
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => handleTabChange(tab.id)}
+            className={`w-full sm:flex-1 py-3 px-6 rounded-xl font-mono text-sm tracking-wider uppercase font-bold transition-all duration-300 text-center whitespace-nowrap ${
+              activeTab === tab.id
+                ? 'bg-[#00F29D] text-black shadow-[0_0_15px_rgba(0,242,157,0.2)]'
+                : 'bg-zinc-800/40 text-zinc-300 hover:bg-zinc-800 hover:text-white border border-white/5'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-        {/* Right Column: Dynamic Tab Content */}
-        <div className="lg:col-span-7 w-full min-h-[380px] flex flex-col items-start justify-start">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="w-full flex flex-col items-start"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold font-mono text-white mb-2 uppercase tracking-tighter">
-                {currentTab.title}
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6 text-left max-w-xl font-sans">
-                {currentTab.description}
-              </p>
-              
-              <div className="w-full">
-                {currentTab.render()}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      {/* Dynamic Tab Content (Centered) */}
+      <div className="w-full max-w-3xl mx-auto min-h-[380px] flex flex-col items-center justify-start text-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="w-full flex flex-col items-center"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold font-mono text-white mb-2 uppercase tracking-tighter">
+              {currentTab.title}
+            </h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-xl font-sans">
+              {currentTab.description}
+            </p>
+            
+            <div className="w-full">
+              {currentTab.render()}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   )

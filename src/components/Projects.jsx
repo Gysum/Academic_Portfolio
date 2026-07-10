@@ -1,85 +1,84 @@
 import { motion } from 'framer-motion'
-import { FiGithub, FiFolder } from 'react-icons/fi'
+import { FiGithub } from 'react-icons/fi'
 import { PROJECTS } from '../utils/constants'
 import { playTick } from '../utils/audio'
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-wrap py-16 flex flex-col items-center w-full border-t border-white/5">
-      <div className="relative z-10 text-left w-full mb-12">
+    <section id="projects" className="section-wrap py-20 flex flex-col items-center w-full border-t border-white/5">
+      {/* Title */}
+      <div className="relative z-10 text-center w-full mb-16 select-none">
         <span className="font-mono text-xs text-[#00F29D] uppercase tracking-widest">[ Portfolio ]</span>
-        <h2 className="text-3xl font-mono uppercase tracking-tighter text-white font-bold mt-2">Projects</h2>
+        <h2 className="text-4xl font-mono uppercase tracking-tighter text-white font-bold mt-2">
+          Projects
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      {/* Projects list */}
+      <div className="w-full space-y-24 pb-20">
         {PROJECTS.map((project, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="group relative bg-[#131313] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-[#00F29D]/30 transition-all duration-300 select-none overflow-hidden"
+            transition={{ duration: 0.6 }}
+            className="w-full max-w-3xl mx-auto bg-[#09090b] border border-white/5 hover:border-[#00F29D]/20 rounded-[32px] p-8 md:p-12 transition-all duration-300 relative group overflow-hidden select-none sticky top-28"
+            style={{
+              zIndex: 10 + idx,
+            }}
           >
             {/* Ambient Background Glow on Hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00F29D]/0 to-[#00F29D]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00F29D]/0 to-[#00F29D]/1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-            <div>
-              {/* Header icons */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 group-hover:text-[#00F29D] transition-colors">
-                  <FiFolder size={20} />
+            {/* Project Title at the top (centered) */}
+            <h3 className="font-mono text-xl md:text-2xl font-bold uppercase tracking-widest text-center text-white mb-8 group-hover:text-[#00F29D] transition-colors">
+              {project.title}
+            </h3>
+
+            {/* Content Details */}
+            <div className="w-full flex flex-col justify-between text-left space-y-6">
+              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
+                {project.description}
+              </p>
+
+              <div className="space-y-3">
+                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest block">
+                  Tech Stack :
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="font-mono text-[9px] font-bold text-black bg-white px-3 py-1 rounded-full uppercase"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
+              </div>
+
+              {/* Footer links & role */}
+              <div className="flex items-center gap-4 pt-4 border-t border-white/5">
                 <a
                   href={project.repo}
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => playTick()}
-                  className="w-10 h-10 rounded-full border border-white/10 hover:border-[#00F29D]/30 hover:bg-[#00F29D]/10 flex items-center justify-center text-zinc-400 hover:text-[#00F29D] transition-all cursor-pointer"
-                  title="View Repository"
+                  className="text-zinc-400 hover:text-[#00F29D] transition-colors cursor-pointer"
+                  title="GitHub Repository"
                 >
                   <FiGithub size={18} />
                 </a>
-              </div>
 
-              {/* Title & Role */}
-              <h3 className="font-mono text-lg md:text-xl font-bold text-white group-hover:text-[#00F29D] transition-colors leading-tight">
-                {project.title}
-              </h3>
-              <span className="font-mono text-[9px] text-[#00F29D]/80 uppercase tracking-widest mt-1 block">
-                {project.role}
-              </span>
-
-              {/* Description */}
-              <p className="text-xs text-zinc-400 font-sans leading-relaxed mt-4">
-                {project.description}
-              </p>
-            </div>
-
-            {/* Tech stack and Action */}
-            <div className="mt-8">
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((t, i) => (
-                  <span
-                    key={i}
-                    className="font-mono text-[9px] text-zinc-500 bg-white/5 border border-white/5 px-2 py-0.5 rounded uppercase"
-                  >
-                    {t}
+                {/* Dashed line and role/award info */}
+                <div className="flex items-center gap-3 text-zinc-500 font-mono text-[10px] uppercase tracking-wider flex-1 overflow-hidden">
+                  <div className="border-t border-dashed border-zinc-700 flex-1 min-w-[20px]" />
+                  <span className="text-zinc-400 group-hover:text-[#00F29D] transition-colors font-bold whitespace-nowrap">
+                    {project.role}
                   </span>
-                ))}
+                </div>
               </div>
-
-              <a
-                href={project.repo}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => playTick()}
-                className="bg-white text-black font-mono text-[10px] font-bold px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-[#00F29D] transition-colors w-fit shadow-sm cursor-pointer group/btn"
-                data-cursor="click"
-              >
-                View Repository
-                <span className="w-4 h-4 rounded-full bg-black text-white flex items-center justify-center text-[8px] group-hover/btn:translate-x-0.5 transition-transform">→</span>
-              </a>
             </div>
           </motion.div>
         ))}

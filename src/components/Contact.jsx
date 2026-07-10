@@ -58,7 +58,7 @@ export default function Contact() {
   return (
     <section id="contacts" className="section-wrap border-t border-white/5">
       {/* Centered header */}
-      <div className="text-left mb-12">
+      <div className="text-center mb-12">
         <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">Contact</span>
         <h2 className="text-4xl font-mono uppercase tracking-tighter text-white font-bold mt-2">
           Let's talk
@@ -68,7 +68,7 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-5 gap-8">
+      <div className="w-full flex justify-center">
         {/* Form panel */}
         <motion.form
           initial={{ opacity: 0, y: 16 }}
@@ -76,7 +76,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
-          className="md:col-span-3 border border-white/10 rounded-[24px] p-7 space-y-5 bg-transparent"
+          className="w-full max-w-xl border border-white/10 rounded-[24px] p-7 space-y-5 bg-transparent text-left"
         >
           <Field label="Name" name="name" value={form.name} onChange={handleChange} required />
           <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} required />
@@ -100,19 +100,6 @@ export default function Contact() {
             {status === 'error' && 'Failed to send — try again?'}
           </button>
         </motion.form>
-
-        {/* Links panel */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="md:col-span-2 flex flex-col gap-4"
-        >
-          <ContactLink icon={FiMail} label="Email" value={PROFILE.email} href={`mailto:${PROFILE.email}`} />
-          <ContactLink icon={FiGithub} label="GitHub" value={`@${PROFILE.github.split('/').pop()}`} href={PROFILE.github} />
-          <ContactLink icon={FiLinkedin} label="LinkedIn" value="Connect" href={PROFILE.linkedin} />
-        </motion.div>
       </div>
     </section>
   )

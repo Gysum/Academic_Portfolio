@@ -52,7 +52,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto max-w-6xl px-6 md:px-8 flex items-center justify-between">
         {/* Name / Brand on left */}
-        <a href="#home" className="text-xl font-bold tracking-tight text-white select-none hover:opacity-80 transition-opacity">
+        <a href="#home" className="text-lg sm:text-xl font-bold tracking-tight text-white select-none hover:opacity-80 transition-opacity">
           {PROFILE.name}<span className="text-[#00F29D]">.</span>
         </a>
 
@@ -84,7 +84,7 @@ export default function Navbar() {
               e.preventDefault()
               window.open(`mailto:${PROFILE.email}`, '_blank')
             }}
-            className="bg-[#00F29D] text-black font-semibold text-xs md:text-sm px-6 py-2 rounded-full hover:bg-[#00d187] transition-all duration-300 shadow-[0_0_15px_rgba(0,242,157,0.15)] hover:shadow-[0_0_25px_rgba(0,242,157,0.3)]"
+            className="bg-[#00F29D] text-black font-semibold text-[10px] sm:text-xs md:text-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full hover:bg-[#00d187] transition-all duration-300 shadow-[0_0_15px_rgba(0,242,157,0.15)] hover:shadow-[0_0_25px_rgba(0,242,157,0.3)]"
           >
             Hire me
           </a>
