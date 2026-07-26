@@ -116,12 +116,34 @@ export const WORK_EXPERIENCE = [
   {
     year: "2026 - Now",
     duration: "Ongoing",
+    company: "VibeCode Editor",
+    role: "Full Stack Developer",
+    description:
+      "Designed and developed a browser-based IDE featuring Monaco Editor, WebContainers, integrated terminal, live preview, secure OAuth authentication, and project management. Built a scalable full-stack architecture using Next.js, Prisma ORM, and MongoDB.",
+    location: "Remote",
+    date: "August 2026",
+    link: "https://github.com/Gysum/Vibe-code-editor",
+  },
+  {
+    year: "2026",
+    duration: "Completed",
+    company: "RiverFlow",
+    role: "Frontend Developer",
+    description:
+      "Developed a responsive smart water management platform with an intuitive user interface and modern design. Focused on delivering an accessible user experience through responsive layouts and optimized frontend architecture.",
+    location: "Remote",
+    date: "July 2026",
+    link: "https://github.com/Gysum/RiverFlow",
+  },
+  {
+    year: "2026",
+    duration: "Completed",
     company: "Project Camp",
     role: "Backend Architect & Developer",
     description:
       "Designed and built a collaborative project management service with subtasks, notes, and user authentication with role-based access control. Implemented event-driven patterns and robust MongoDB schemas.",
     location: "Remote",
-    date: "July 2026",
+    date: "June 2026",
     link: "https://github.com/Gysum/Project-Camp",
   },
   {
@@ -134,26 +156,6 @@ export const WORK_EXPERIENCE = [
     location: "IIT Dharwad",
     date: "Feb 2026",
     link: "/hal_aerothon_26.jpg",
-  },
-  {
-    year: "2025 - 2026",
-    duration: "8 months",
-    company: "Academic Projects",
-    role: "Fullstack Developer",
-    description:
-      "Built various fullstack apps using Node.js, Express, and React. Focused on creating responsive user interfaces and modular REST APIs.",
-    location: "IIIT Dharwad",
-    date: "August - December 2025",
-  },
-  {
-    year: "2024 - 2025",
-    duration: "1 year",
-    company: "Open Source Dev",
-    role: "UI Specialist",
-    description:
-      "Contributed to open source design libraries. Specialized in TypeScript, Tailwind CSS, and interactive component architectures.",
-    location: "Remote",
-    date: "2024 - 2025",
   },
 ];
 
