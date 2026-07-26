@@ -31,7 +31,10 @@ export default function Hero() {
           {/* Actions: Download CV and Socials */}
           <div className="flex flex-wrap items-center gap-6 select-none">
             <a
-              href="#"
+              href="resume.pdf"
+              download="Aakash_Pathrikar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => playTick()}
               className="group border-2 border-[#00F29D] text-[#00F29D] font-mono text-xs md:text-sm font-bold px-6 py-3 rounded-full flex items-center gap-3 hover:bg-[#00F29D] hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,242,157,0.1)] hover:shadow-[0_0_25px_rgba(0,242,157,0.3)] cursor-pointer"
             >
@@ -43,8 +46,8 @@ export default function Hero() {
 
             <div className="flex items-center gap-3">
               {[
-                { icon: FaGithub, href: PROFILE.github, label: 'GitHub' },
-                { icon: FaLinkedin, href: PROFILE.linkedin, label: 'LinkedIn' },
+                { icon: FaGithub, href: PROFILE.github, label: "GitHub" },
+                { icon: FaLinkedin, href: PROFILE.linkedin, label: "LinkedIn" },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -67,7 +70,7 @@ export default function Hero() {
           <div className="relative flex items-center justify-center w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px]">
             {/* Spinning Dashed Border */}
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#00F29D] animate-spin-slow pointer-events-none"></div>
-            
+
             {/* Portrait Image wrapper */}
             <div className="w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border border-white/10 bg-zinc-950 flex items-center justify-center z-10 shadow-2xl transition-all duration-500 grayscale hover:grayscale-0">
               <img
@@ -98,6 +101,6 @@ export default function Hero() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 

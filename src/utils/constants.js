@@ -41,6 +41,7 @@ export const PROJECTS = [
     ],
     role: "Full Stack Developer",
     image: "/vibecode_editor_preview.png",
+    type: "frontend",
   },
   {
     title: "RiverFlow",
@@ -50,6 +51,7 @@ export const PROJECTS = [
     tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
     role: "Frontend Developer",
     image: "/riverflow_preview.png",
+    type: "frontend",
   },
   {
     title: "Project Camp Backend",
@@ -59,6 +61,7 @@ export const PROJECTS = [
     tech: ["Node.js", "Express.js", "MongoDB", "REST API", "JWT", "RBAC"],
     role: "Backend Engineer",
     image: "/project_camp_preview.png",
+    type: "backend",
   },
 ];
 
